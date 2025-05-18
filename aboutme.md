@@ -1,16 +1,11 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
-
-- I rock a great mustache
-- I'm extremely loyal to my family
-
-What else do you need?
-
-### My story
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+- 👨‍🎓 I’m Vinit Thakur, a final-year B.Tech student at IIT Jodhpur, India.
+- ⚽ I’m passionate about sports, especially football — both playing and watching.
+- 🎬 I enjoy watching movies, from thrillers to timeless classics.
+- 💻 I’m a part-time coder, constantly learning and building cool stuff on the side.
+- 🎯 I believe in balance — keeping the mind sharp and the body active.
+- 🚀 Always up for new challenges and meaningful collaborations.
