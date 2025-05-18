@@ -1,6 +1,5 @@
 ---
 layout: post
-title: "My Journey with data.table and GSoC 2025"
 subtitle: "From discovery to contribution"
 date: 2025-05-18
 ---
