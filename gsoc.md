@@ -27,6 +27,6 @@ CRAN: [https://cran.r-project.org/web/packages/data.table/index.html](https://cr
 
 As part of GSoC 2025, my project involves contributing directly to `data.table` by addressing outstanding GitHub issues. My responsibilities will include bug fixes, documentation improvements, and implementing new features where needed.
 
-Initially, I plan to resolve at least 10 minor issues aimed at enhancing usability, such as clarifying documentation and ensuring consistent behaviors. Once those are complete, I’ll move on to tackling more complex challenges—potentially requiring 60–80 hours—ranging from feature development to core codebase refactoring.
+Initially, I plan to resolve at least 10 minor issues aimed at enhancing usability, such as clarifying documentation and ensuring consistent behaviors. Once those are complete, I’ll move on to tackling more complex challenges
 
 Through this project, I aim not only to close the issues outlined in my proposal but also to deepen my understanding of R and C programming, contribute meaningfully to open source, and grow through collaborative development with the `data.table` community.
