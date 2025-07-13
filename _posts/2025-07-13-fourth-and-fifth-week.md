@@ -64,3 +64,23 @@ To fix this:
 
 Using `cube()` triggered confusing warnings from `min()` or `max()` like:
 
+These warnings originated during internal evaluation steps that inferred output structure — not from user code — and often caused unnecessary concern.
+
+To resolve this:
+
+- I wrapped the relevant call in a simple `suppressWarnings()` to silence these **spurious min/max warnings**.
+- The suppression is targeted only at the **structure-seeding evaluation** (`x[0L, eval(jj), by]`), where no real user data is involved.
+- This avoids cluttering output while still surfacing legitimate user-generated warnings elsewhere.
+
+Although not a fine-grained suppression, this solution is sufficient and safe for this internal case — and significantly improves the UX when using `cube()` on clean data.
+
+---
+
+### Weeks 4 and 5 Summary
+
+These two weeks focused on strengthening `data.table`'s **user experience and internal reliability**. From guarding against subtle mistakes to modernizing documentation and squashing misleading warnings, each change helps create a more stable and intuitive tool.
+
+With the foundation solidified, the next phase will explore **performance enhancements**, deeper **type system integrations**, and **expanded functionality** in joins and evaluation strategies.
+
+Stay tuned — more improvements are on the way!
+
