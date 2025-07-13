@@ -18,6 +18,8 @@ To improve usability:
 
 This addition improves discoverability and debugging workflows for complex environments and nested data.
 
+**Further discussion is ongoing** around refining the recursive behavior, including how deep to traverse and whether to support additional structures (e.g., environments or language objects), to ensure the functionality aligns well with user expectations and real-world use cases.
+
 ---
 
 ### Safer `:=` Assignments: Guarding Against Function RHS ([PR #7161](https://github.com/Rdatatable/data.table/pull/7161), Closes [#5829](https://github.com/Rdatatable/data.table/issues/5829))
@@ -30,7 +32,9 @@ To prevent this:
 - The logic is scoped to cases where **new columns are being created**, ensuring no interference with valid operations.
 - This check improves error diagnostics and guards against accidental misuse.
 
-While this patch covers function closures, it lays the groundwork for handling other exotic types (e.g., environments, external pointers) in future iterations.
+While a version of this check had been attempted previously, it required refinement. The new implementation builds on past work and follows up on feedback from earlier discussions, aiming for better **placement**, **specificity**, and **clarity** in error handling.
+
+This patch currently covers only closures/functions, but it lays the groundwork for addressing other exotic RHS types (e.g., environments, external pointers) in future iterations.
 
 ---
 
@@ -50,14 +54,22 @@ This fix ensures the vignette remains relevant and educational for new users lea
 
 ### Improved Print Formatting: Dynamic Column Widths when `col.names = "none"` ([PR #7130](https://github.com/Rdatatable/data.table/pull/7130), Closes [#6882](https://github.com/Rdatatable/data.table/issues/6882))
 
-When printing `data.table`s with `col.names = "none"`, column widths were previously hardcoded — often resulting in misaligned or clipped output.
+When printing `data.table`s with `col.names = "none"`, the column widths were previously influenced by the actual (but hidden) column names. This often caused columns to appear wider than necessary or misaligned — especially when long names were present.
 
-To fix this:
+To address this:
 
-- I modified the logic to **dynamically determine column widths** based on the data, even when no headers are printed.
-- This leads to cleaner, more legible output in customized printing contexts.
-- The patch includes a targeted test and keeps output alignment consistent across use cases.
+- I added logic to explicitly **replace column names with empty strings** when `col.names == "none"` is specified:
 
+  ```r
+  if (col.names == "none") 
+    colnames(toprint) <- rep.int("", ncol(toprint))
+  ```
+- This step is performed immediately after toprint is constructed, but before any formatting or width calculations.
+- As a result, all width computations are now solely based on data content, not column names — resolving the issue completely.
+- The patch includes a test to ensure consistent and predictable output behavior.
+
+This change improves the legibility of output when column headers are suppressed and makes `print.data.table` more intuitive in custom display workflows.
+  
 ---
 
 ### Silencing Spurious Warnings in `cube()` Eval ([PR #7110](https://github.com/Rdatatable/data.table/pull/7110), Closes [#6964](https://github.com/Rdatatable/data.table/issues/6964))
