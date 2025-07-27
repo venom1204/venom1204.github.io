@@ -5,29 +5,17 @@ subtitle: "Refining the Edges — From Error Messaging to Practical Utilities"
 date: 2025-07-27
 ---
 
-### Consistent and Clear: Unifying `:=` Error Messages (In Progress, [#4920](https://github.com/Rdatatable/data.table/issues/4920))
+### Consistent and Clear: Unifying `:=` Error Messages (PR in Progress, [#4920](https://github.com/Rdatatable/data.table/issues/4920))
 
-One of the recurring user pain points in `data.table` has been **confusing and inconsistent errors** when using `:=` inside `{}` blocks.  
-Two separate error messages existed:
+I improved error messaging for `:=` misuse inside `{}` blocks:
 
-1. When users placed multiple `:=` calls inside `{}`.
-2. When extra expressions were mixed in alongside `:=`.
+- Updated the main `stopf()` messages in `R/data.table.R` to **clarify the rules**:
+  - "`:=` must be the only statement inside `{}` and may only appear once."
+  - Suggests using `{}` on the RHS of `:=` for multi-step logic.
+- Enhanced the general `:=` error to **hint at common mistakes** (like using `<-` or multiple statements).
+- Added a **note in `assign.Rd`** explaining that `:=` inside `{}` must be the only statement, pointing users toward the functional form for multi-column updates.
 
-These messages were **worded differently**, forcing users to read through `?":="` or examples to understand the rules.
-
-To simplify this:
-
-- I analyzed the **existing error-checking logic**, which only inspects the **first statement** inside `{}`.  
-  This caused cases like `{ tmp = 1; (tmp) := 2 }` to **fall through** to a generic, unhelpful message.
-- I refactored the handling so **all lines in the `{}` block are scanned** for `:=`, ensuring both types of misuse are caught consistently.
-- Introduced a **single, unified error message**:
-
-  > “You have wrapped `:=` with `{}`, which is allowed, but `:=` must be the only expression inside `{}` and may only appear once.  
-  > Consider placing the `{}` on the RHS of `:=`, e.g. `DT[, col := { tmp1 <- ...; tmp2 <- ...; tmp1 * tmp2 }]`. See `?":="` for details.”
-
-- Planned updates to `?":="` and `?data.table` to **highlight this rule prominently** so users don’t need to read the entire help page to discover it.
-
-This work brings consistency, improves guidance, and helps beginners avoid common frustrations when dynamically updating columns.
+These changes make the error messages **clearer and more instructive**, reducing confusion for new users.
 
 ---
 
