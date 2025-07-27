@@ -19,21 +19,14 @@ These changes make the error messages **clearer and more instructive**, reducing
 
 ---
 
-### Quick Demos for New Helpers: `cbindlist()` and `mergelist()` (Ongoing, [#7171](https://github.com/Rdatatable/data.table/issues/7171))
+### Making New Helpers Discoverable: `cbindlist()` and `mergelist()` Examples (PR in Progress, [#7171](https://github.com/Rdatatable/data.table/issues/7171))
 
-The release introduces two convenience functions:
+I added **concise examples** to `NEWS.md` for the new helper functions:
 
-- **`cbindlist()`**: column-binds a list of `data.table`s into one.
-- **`mergelist()`**: performs recursive merges across a list, supporting `how = "inner"` and `"full"` joins on a shared key.
+- `cbindlist()`: shows a basic column-wise concatenation of two `data.table`s from a list.
+- `mergelist()`: demonstrates both **recursive inner join** and **left join** on a shared `id` key.
 
-To make these discoverable without requiring users to read the full manuals:
-
-- I drafted **concise examples** for `NEWS.md`:
-  - `cbindlist()`: a minimal column-wise concatenation demo.
-  - `mergelist()`: both inner and full joins on a shared `id`.
-- These examples act as **quick teasers**, encouraging readers to explore the full help pages if they need more.
-
-This ensures users can quickly understand new tools right from the release notes.
+These examples give users a quick understanding of the new functions directly from the release notes, without needing to dive into full documentation.
 
 ---
 
