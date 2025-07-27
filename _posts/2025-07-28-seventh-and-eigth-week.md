@@ -43,7 +43,8 @@ To address this:
 
 ### Strengthening Date Support: Adding `isoyear()` (PR [#7197](https://github.com/Rdatatable/data.table/pull/7197), Closes [#7154](https://github.com/Rdatatable/data.table/issues/7154))
 
-Many workflows rely on ISO calendars, and while `data.table` already had `isoweek()`, there was no direct way to extract the **ISO year**.
+Many workflows rely on **ISO week-based calendars**, especially for reporting and time-series aggregation, where weeks can cross year boundaries.  
+While `data.table` already had `isoweek()`, there was no direct way to extract the **ISO year** that a date belongs to — something crucial when ISO week 1 can fall in late December of the previous calendar year.
 
 To close this gap:
 
@@ -51,3 +52,19 @@ To close this gap:
 
   ```r
   isoyear = function(x) as.integer(format(as.IDate(x), "%G"))
+  ```
+
+This approach leverages `format()` for speed and reliability, correctly computing ISO years even for tricky edge cases.  
+For example, `isoyear("2019-12-30")` returns `2020`, since that date falls in ISO week 1 of the following year.
+
+I added **unit tests** to ensure correct behavior across boundaries (December–January overlaps, leap years, etc.).
+
+**Documentation, NAMESPACE, and `NEWS.md`** were updated, making the new function easy to discover and use.
+
+With `isoyear()`, `data.table` now offers a **complete pair alongside `isoweek()`**, giving users a simple, built-in way to group and summarize data by ISO periods without relying on external packages.
+
+---
+
+Weeks 7 and 8 focused on **polishing the user experience**:  
+improving error guidance, making new helpers (`cbindlist()`, `mergelist()`, `sort_by()`) more approachable, and filling a long-standing gap with ISO calendar support.  
+These refinements help make `data.table` **smoother and more intuitive** for both new and experienced users.
