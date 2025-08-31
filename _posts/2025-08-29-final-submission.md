@@ -36,6 +36,8 @@ Over the course of the program, I worked on a variety of issues ranging from doc
 | Added examples for cbindlist and mergelist                                                                       | [#7172](https://github.com/Rdatatable/data.table/pull/7172)          |
 | tables() supports recursive search for nested data.tables via recursive=TRUE argument                            | [#7141](https://github.com/Rdatatable/data.table/pull/7141)          |
 | Updated bmerge() to support joins on complex columns with zero imaginary part, treating them as double           | [#7085](https://github.com/Rdatatable/data.table/pull/7085)          |
+| Fixed week() calculation to start week 1 at days 1–7                                                             | [#7274]
+(https://github.com/Rdatatable/data.table/pull/7274)
 
 ## Overall Experience
 This journey has been both exciting and transformative. I gained not only technical skills in R, data.table internals, and collaborative software development but also learned the importance of communication, community engagement, and iterative problem-solving. Every PR review from my mentors helped me improve, and the encouragement I received from the community kept me motivated throughout.
