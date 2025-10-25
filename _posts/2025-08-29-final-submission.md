@@ -38,6 +38,7 @@ Over the course of the program, I worked on a variety of issues ranging from doc
 | tables() supports recursive search for nested data.tables via recursive=TRUE argument                            | [#7141](https://github.com/Rdatatable/data.table/pull/7141)          |
 | Updated bmerge() to support joins on complex columns with zero imaginary part, treating them as double           | [#7085](https://github.com/Rdatatable/data.table/pull/7085)          |
 | Fixed week() calculation to start week 1 at days 1–7                                                             | [#7274](https://github.com/Rdatatable/data.table/pull/7274)          |
+| Clarify $ vs [, col] behavior in docs (#7369)                                                                    | [#7369](https://github.com/Rdatatable/data.table/pull/7381)          |
 
 
 ## Overall Experience
