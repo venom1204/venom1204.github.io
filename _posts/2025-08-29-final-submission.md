@@ -22,6 +22,7 @@ Over the course of the program, I worked on a variety of issues ranging from doc
 | Sequence correction                                                                                              | [#7081](https://github.com/Rdatatable/data.table/pull/7081)          |
 | Refactored duplicate recursive assignment logic in `[.data.table` and `setDT` into shared helper                 | [#7064](https://github.com/Rdatatable/data.table/pull/7064)          |
 | Clarified behavior of "24:00:00" in as.ITime()                                                                   | [#7057](https://github.com/Rdatatable/data.table/pull/7057)          |
+| #2611 Fix week() calculation to start week 1 at days 1–7                                                         | [#7380](https://github.com/Rdatatable/data.table/pull/7380)          |
 | Clarified setindex vs setkey subsetting behavior                                                                 | [#7047](https://github.com/Rdatatable/data.table/pull/7047)          |
 | Enhanced setDT Documentation: Added Example for RDS/RData Usage and FAQ Link                                     | [#6894](https://github.com/Rdatatable/data.table/pull/6894)          |
 | Fix: Added Examples of Named List Elements in i to Improve Clarity                                               | [#6868](https://github.com/Rdatatable/data.table/pull/6868)          |
@@ -36,7 +37,7 @@ Over the course of the program, I worked on a variety of issues ranging from doc
 | Added examples for cbindlist and mergelist                                                                       | [#7172](https://github.com/Rdatatable/data.table/pull/7172)          |
 | tables() supports recursive search for nested data.tables via recursive=TRUE argument                            | [#7141](https://github.com/Rdatatable/data.table/pull/7141)          |
 | Updated bmerge() to support joins on complex columns with zero imaginary part, treating them as double           | [#7085](https://github.com/Rdatatable/data.table/pull/7085)          |
-| Fixed week() calculation to start week 1 at days 1–7 | [#7274](https://github.com/Rdatatable/data.table/pull/7274) |
+| Fixed week() calculation to start week 1 at days 1–7                                                             | [#7274](https://github.com/Rdatatable/data.table/pull/7274)          |
 
 
 ## Overall Experience
