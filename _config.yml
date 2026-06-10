@@ -20,8 +20,9 @@ author: Vinit Thakur
 ###############################################
 
 navbar-links:
+  GSoC 2026: "tags#gsoc2026"
+  GSoC 2025: "tags#gsoc2025"
   About Me: "aboutme"
-  Google summer of code: "gsoc"
 ################
 # --- Logo --- #
 ################
@@ -98,7 +99,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "venom1204.github.io.com"
+url-pretty: "venom1204.github.io"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
