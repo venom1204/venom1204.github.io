@@ -1,5 +1,5 @@
 ---
-tage:2025
+tags:2025
 ---
 # GSOC Final Submission
 
