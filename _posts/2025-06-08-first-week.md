@@ -3,6 +3,7 @@ layout: post
 title: "GSoC First Week Progress: Diving into the Details"
 subtitle: "Improving User Experience, One PR at a Time"
 date: 2025-06-08
+tags: [gsoc2025]
 ---
 
 ### The Journey Officially Begins
