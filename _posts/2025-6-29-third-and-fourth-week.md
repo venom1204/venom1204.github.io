@@ -3,6 +3,7 @@ layout: post
 title: "GSoC Weeks 3–4 Progress: Smarter Joins, Safer Internals, and Clearer Docs"
 subtitle: "From Complex Handling to Clarified Syntax — Laying Down Durable Groundwork"
 date: 2025-06-29
+tags: [gsoc2025]
 ---
 
 ### Extending Join Semantics: Smarter Handling of Complex Types (PR [#7085](https://github.com/Rdatatable/data.table/pull/7085), Closes [#6627](https://github.com/Rdatatable/data.table/issues/6627))
