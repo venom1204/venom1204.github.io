@@ -2,6 +2,7 @@
 layout: post
 subtitle: "From discovery to contribution"
 date: 2025-05-18
+tags: [gsoc2025]
 ---
 
 ### How It All Began
