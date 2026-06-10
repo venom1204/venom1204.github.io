@@ -2,7 +2,7 @@
 layout: post
 title: "GSoC First Week Progress"
 subtitle: "Improving Consistency and User Experience in data.table"
-date: 2025-05-31
+date: 2026-05-31
 tags: [gsoc2026]
 ---
 
