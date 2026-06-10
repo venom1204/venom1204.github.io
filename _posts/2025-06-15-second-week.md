@@ -3,6 +3,7 @@ layout: post
 title: "GSoC Week 2 Progress: Refining Internals and Clarifying Behavior"
 subtitle: "Better Docs, Cleaner Code, and Thoughtful Consistency"
 date: 2025-06-15
+tags: [gsoc2025]
 ---
 
 ### Strengthening the Foundations
