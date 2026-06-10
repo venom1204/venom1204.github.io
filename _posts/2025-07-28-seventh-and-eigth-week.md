@@ -3,6 +3,7 @@ layout: post
 title: "GSoC Weeks 7–8 Progress: Friendlier Errors, Discoverable Helpers, and ISO Calendar Support"
 subtitle: "Refining the Edges — From Error Messaging to Practical Utilities"
 date: 2025-07-27
+tags: [gsoc2025]
 ---
 
 ### Consistent and Clear: Unifying `:=` Error Messages (PR in Progress, [#4920](https://github.com/Rdatatable/data.table/issues/4920))
