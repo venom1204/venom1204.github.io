@@ -6,9 +6,9 @@ date: 2026-06-14
 tags: [gsoc2026]
 ---
 
-### Continuing Work on Consistency and Reference Semantics
+### Picking Up Momentum After Convocation Week
 
-The third week of GSoC focused heavily on improving consistency across `data.table` APIs and clarifying subtle reference semantics behaviors through documentation updates and feature enhancements.
+The second week of the coding period was comparatively slower on my side as I was occupied with the convocation process and related activities at my university. However, once that wrapped up, work picked up pace again during the third week with a stronger focus on implementation, documentation updates, and API consistency improvements across `data.table`.
 
 A large part of the work this week involved understanding how users interact with `:=`, repeated execution patterns, and formula interfaces like `dcast()`.
 
