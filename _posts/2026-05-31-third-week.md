@@ -57,4 +57,4 @@ For both issues, I proposed potential approaches and will begin implementation w
 
 ---
 
-This week involved a strong mix of API consistency improvements, documentation refinement, and design discussions around user-facing behavior. Looking forward to continuing work on both usability and internal consistency across the `data.table` ecosystem.
+This week involved a strong mix of consistency improvements, documentation refinement, and design discussions around user-facing behavior. Looking forward to continuing work on both usability and internal consistency across the `data.table` ecosystem.
