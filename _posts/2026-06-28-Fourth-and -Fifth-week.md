@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GSoC Fourth & Fifth Week Progress"
-subtitle: "Improving Printing Behavior and API Consistency in data.table"
+subtitle: "Improving Printing Behavior and Consistency in data.table"
 date: 2026-06-28
 tags: [gsoc2026]
 ---
