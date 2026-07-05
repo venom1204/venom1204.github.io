@@ -2,7 +2,7 @@
 layout: post
 title: "GSoC Sixth Week Progress"
 subtitle: "Improving print.data.table() and .SD Diagnostics"
-date: 2026-07-05
+date: 2026-07-04
 tags: [gsoc2026]
 ---
 
