@@ -40,17 +40,20 @@ The review process generated several valuable suggestions, including additional 
 
 ## Extending `setnafill()` with Logical Column Selection
 
-I also contributed to [issue #4113](https://github.com/Rdatatable/data.table/issues/4113), which requested support for logical vectors in the `cols` argument of `setnafill()`. This enhancement makes it easier to dynamically select columns using expressions such as `sapply(DT, is.numeric)` without manually converting the result into column names or indices.
+I also worked on [issue #4113](https://github.com/Rdatatable/data.table/issues/4113), which requested support for logical vectors in the `cols` argument of `setnafill()`. Previously, users had to manually convert logical selections into column names or indices before passing them to `setnafill()`. Supporting logical vectors allows users to write more natural and concise code, such as `sapply(DT, is.numeric)`, when selecting columns for in-place missing value filling.
 
-I submitted [PR #7842](https://github.com/Rdatatable/data.table/pull/7842), which:
+To address this, I submitted [PR #7842](https://github.com/Rdatatable/data.table/pull/7842), which extends `setnafill()` to natively accept logical vectors for the `cols` argument while maintaining full compatibility with the existing API.
 
-- Extends `setnafill()` to accept logical vectors for the `cols` argument.
-- Updates the internal `colnamesInt` C utility to correctly process logical vectors.
-- Validates that logical vectors have the correct length and do not contain `NA` values.
-- Preserves the existing error-handling behavior across the package.
-- Adds regression tests covering the new functionality and validation scenarios.
+The implementation includes:
 
-This enhancement provides a more natural and flexible way to perform by-reference filling on dynamically selected columns while maintaining consistency with existing `data.table` APIs.
+- Extending `setnafill()` to accept logical vectors in addition to integer and character column specifications.
+- Updating the internal `colnamesInt` C utility to recognize and process logical vectors efficiently.
+- Validating that supplied logical vectors have the exact length as the number of columns in the `data.table`.
+- Rejecting logical vectors containing `NA` values to ensure predictable behavior.
+- Preserving the package's existing error-handling logic so that validation remains consistent across all APIs relying on `colnamesInt`.
+- Adding regression tests covering valid logical selections along with error cases involving incorrect lengths and missing (`NA`) values.
+
+This enhancement improves the usability of `setnafill()` by enabling dynamic, condition-based column selection while keeping the implementation efficient and fully consistent with the existing behavior of **data.table**.
 
 ## Clarifying `R CMD check` NOTES for the `..` Prefix
 
@@ -98,4 +101,3 @@ The implementation is currently under review, and I will continue refining it ba
 ## Looking Ahead
 
 Over the coming weeks, my primary focus will be on addressing review comments for the currently open pull requests, expanding regression test coverage where needed, and refining both the implementation and documentation of recently added features. As these contributions move toward merge readiness, I also plan to continue working on additional feature requests and documentation improvements to further enhance the usability, consistency, and overall developer experience of **data.table**.
-```
