@@ -21,7 +21,7 @@ I submitted [PR #7807](https://github.com/Rdatatable/data.table/pull/7807), whic
 - Documentation updates to `special-symbols.Rd` and the `.SD` vignette explaining the static snapshot behavior of `.SD`.
 - Regression tests covering grouped, ungrouped, nested, and false-positive scenarios.
 
-During review, I also addressed maintainer feedback regarding implementation details, test conventions, and issue references.
+During review, I also addressed maintainer feedback regarding implementation details, test conventions, issue references, and overall behavior in nested expressions.
 
 ## Adding `limit` Support to `nafill()` and `setnafill()`
 
@@ -36,7 +36,21 @@ The implementation includes:
 - Documentation updates with practical usage examples.
 - Regression tests covering the new functionality.
 
-The review process generated several valuable suggestions, including additional validation for edge cases such as zero, negative, fractional, `NA`, `NaN`, `NULL`, complex values, vectors of length greater than one, `type="const"`, by-reference behavior in `setnafill()`, and NEWS updates. I am currently incorporating this feedback to strengthen the implementation.
+The review process generated several valuable suggestions, including additional validation for edge cases such as zero, negative, fractional, `NA`, `NaN`, `NULL`, complex values, vectors of length greater than one, `type="const"`, by-reference behavior in `setnafill()`, and NEWS updates. I am currently incorporating this feedback to strengthen the implementation before merge.
+
+## Extending `setnafill()` with Logical Column Selection
+
+I also contributed to [issue #4113](https://github.com/Rdatatable/data.table/issues/4113), which requested support for logical vectors in the `cols` argument of `setnafill()`. This enhancement makes it easier to dynamically select columns using expressions such as `sapply(DT, is.numeric)` without manually converting the result into column names or indices.
+
+I submitted [PR #7842](https://github.com/Rdatatable/data.table/pull/7842), which:
+
+- Extends `setnafill()` to accept logical vectors for the `cols` argument.
+- Updates the internal `colnamesInt` C utility to correctly process logical vectors.
+- Validates that logical vectors have the correct length and do not contain `NA` values.
+- Preserves the existing error-handling behavior across the package.
+- Adds regression tests covering the new functionality and validation scenarios.
+
+This enhancement provides a more natural and flexible way to perform by-reference filling on dynamically selected columns while maintaining consistency with existing `data.table` APIs.
 
 ## Clarifying `R CMD check` NOTES for the `..` Prefix
 
@@ -49,7 +63,7 @@ I submitted [PR #7826](https://github.com/Rdatatable/data.table/pull/7826), whic
 - Adds guidance for package developers in the programming and importing vignettes.
 - Improves examples and documentation throughout the affected pages.
 
-Following review, I refined the documentation further by incorporating maintainer suggestions regarding nested expressions and the appropriate use of the `env=` argument.
+Following review, I refined the documentation further by incorporating maintainer suggestions regarding nested expressions and the appropriate use of the `env=` argument. The pull request has since received approvals after the requested refinements.
 
 ## Improving `print.data.table()` Console Width Handling
 
@@ -64,7 +78,7 @@ This update:
 - Preserves backward compatibility when `datatable.prettyprint.char = Inf`.
 - Includes regression tests covering multiple printing scenarios.
 
-The review also provided valuable guidance on Git workflow and pull request management, which will help streamline future contributions.
+During review, maintainers also shared valuable guidance on Git workflows and pull request management. This feedback has helped me improve how I manage feature branches and organize future contributions.
 
 ## Adding Reverse Indexing to `tstrsplit()`
 
@@ -79,6 +93,9 @@ The new feature:
 - Allows users to directly extract the last or second-to-last components without manually reversing vectors.
 - Includes documentation updates and regression tests covering the new functionality.
 
+The implementation is currently under review, and I will continue refining it based on maintainer feedback.
+
 ## Looking Ahead
 
-Over the coming weeks, I will continue refining these contributions by addressing maintainer review comments, expanding test coverage where required, and polishing both the implementation and documentation. My immediate focus is on bringing the currently open pull requests to merge readiness while continuing to contribute new improvements to **data.table**.
+Over the coming weeks, my primary focus will be on addressing review comments for the currently open pull requests, expanding regression test coverage where needed, and refining both the implementation and documentation of recently added features. As these contributions move toward merge readiness, I also plan to continue working on additional feature requests and documentation improvements to further enhance the usability, consistency, and overall developer experience of **data.table**.
+```
