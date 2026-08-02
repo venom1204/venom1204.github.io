@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GSoC Week Progress"
+title: "GSoC 10th Week Progress"
 subtitle: "Enhancing setorderv() and frank()"
 date: 2026-08-02
 tags: [gsoc2026]
